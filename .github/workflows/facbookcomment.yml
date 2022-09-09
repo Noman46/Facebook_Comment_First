@@ -1,23 +1,13 @@
-name: Every 2 minits
-on:
-  # Triggers the workflow every 5 minutes
-  schedule:
-    - cron: "*/2 * * * *"
+
+name: learn-github-actions
+on: [push]
 jobs:
-  build:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - uses: actions/setup-node@v1
-          with:
-            node-version: 16.3
-        - name: Install
-          run: npm install
-        - name: Test
-          run: npm run wdio
-        - uses: actions/upload-artifact@v1
-          if: failure()
-          with:
-            name: logs
-            path: logs
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.3'
+      - run: npm install -g bats
+      - run: bats -v
