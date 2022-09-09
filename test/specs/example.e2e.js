@@ -38,7 +38,7 @@ describe('My Login application', () => {
         await LoginPage.loginToFaceBook()
         await browser.pause(15000)
         await LoginPage.putTheComment()
-        await browser.pause(15000)
+        await browser.pause(14000)
     });
 });
 
