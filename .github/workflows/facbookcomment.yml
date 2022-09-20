@@ -1,4 +1,4 @@
-name: Every 2 minitssssss fb
+name: Schedule
 on: [push]
 
 jobs:
