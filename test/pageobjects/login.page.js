@@ -69,7 +69,9 @@ class LoginPage extends Page {
         console.log(`The number =========== ${tickSigns}`)
     }
     async clickOnLoginButton(){
-        let loginButton = await $('//div[@aria-label="Accessible login button"]')
+        browser.pause(5000)
+        let loginButton = await $('//*[@id="login_form"]/div[2]/div[3]')
+        browser.pause(3000)
         await loginButton.click()
     }
 
