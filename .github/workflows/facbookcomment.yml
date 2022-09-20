@@ -1,9 +1,5 @@
 name: Every 2 minitssssss fb
-on:
-  push:
-    branches: [ master ]
-  schedule:
-    - cron: '10 19 20 9 2'
+on: [push]
 
 jobs:
   build:
