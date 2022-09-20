@@ -81,7 +81,7 @@ class LoginPage extends Page {
         let loginButton = await $('//button[@name="login"]')
 
         await userName.setValue("nomanibrahim420@gmail.com")
-        await password.setValue("nomanfacebook46")
+        await password.setValue("nomanfacebook46new")
         await loginButton.click()
     }
 
