@@ -85,7 +85,8 @@ describe('My Login application', () => {
           // Place your JavaScript code here to be executed in the browser context
           // For example, let's retrieve the current page title:
           //return window.nhstDataLayer.events;
-          return _satellite.buildInfo.buildDate;
+          // return _satellite.buildInfo.buildDate;
+          return s.eVar1;
         });
       
         // Output the result of the JavaScript command
