@@ -34,10 +34,6 @@ class LoginPage extends Page {
     //     return elements.values.length
     // }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
@@ -99,6 +95,11 @@ class LoginPage extends Page {
     openFacebook () {
         return super.openFacebook();
     }
+
+    openRecharge () {
+        return super.openRandomUrl();
+    }
+
 
 
 }

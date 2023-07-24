@@ -59,7 +59,7 @@ exports.config = {
         browserName: 'chrome',
         acceptInsecureCerts: true,
               'goog:chromeOptions': {
-        args: ['--headless'],
+        // args: ['--headless'],
       },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -105,6 +105,8 @@ exports.config = {
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
     connectionRetryTimeout: 120000,
+    automationProtocol: 'devtools',
+
     //
     // Default request retries count
     connectionRetryCount: 3,

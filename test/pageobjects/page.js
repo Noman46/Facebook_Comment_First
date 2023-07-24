@@ -14,4 +14,7 @@ module.exports = class Page {
     openFacebook (path) {
         return browser.url('https://www.facebook.com/groups/isct20')
     }
+    openRandomUrl(path) {
+        return browser.url('https://test.rechargenews.com/')
+    }
 }
