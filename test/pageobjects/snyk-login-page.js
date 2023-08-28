@@ -13,8 +13,8 @@ class SnykLoginPage extends Page {
         await this.btnSubmit.click();
     }
 
-    openSnykLoginPage () {
-        return super.openFacebook();
+    openSnykLessonPage () {
+        return super.open('https://learn.snyk.io/lessons/');
     }
 }
 

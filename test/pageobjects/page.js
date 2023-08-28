@@ -8,13 +8,6 @@ module.exports = class Page {
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     open (path) {
-        return browser.url('https://learn.snyk.io/lessons/')
-    }
-
-    openFacebook (path) {
-        return browser.url('https://www.facebook.com/groups/isct20')
-    }
-    openRandomUrl(path) {
-        return browser.url('https://test.rechargenews.com/')
+        return browser.url(path)
     }
 }
