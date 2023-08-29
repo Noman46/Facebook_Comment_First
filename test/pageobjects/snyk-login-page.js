@@ -1,21 +1,38 @@
 const Page = require('./page');
 
-class SnykLoginPage extends Page {
+class SnykKubernetePage extends Page {
   
 
-    get inputUsername () {
-        return $('#username');
+    get learningTopicCard () {
+        return $$('//div[@class="card"]');
+    }
+    get topicList () {
+        return $$('//a[starts-with(@href,"/lesson/container-does-not-drop-all-default-capabilities/")]');
     }
 
-    async login (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+    async numberOfElements (username, password) {
+        
+        console.log("Eleemnts Lenngth ============ ",await this.learningTopicCard.length)
+        
+
     }
+    async numberOfElements2 (username, password) {
+        
+        console.log("Eleemnts Lenngth topic ============ ",await this.topicList.length)
+    }
+
+    async clcikOnKuberneteLesson (lessonNumber) {
+       this.learningTopicCard[lessonNumber].click()
+    }
+    async clcikOnTopicList (topicNumber) {
+        this.topicList[topicNumber].click()
+     }
+     
+    
 
     openSnykLessonPage () {
-        return super.open('https://learn.snyk.io/lessons/');
+        return super.open('https://learn.snyk.io/lessons/?categories=kubernetes');
     }
 }
 
-module.exports = new SnykLoginPage();
+module.exports = new SnykKubernetePage();

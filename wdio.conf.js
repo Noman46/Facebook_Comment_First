@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/**/snyk-lesson-kubernete.js'
     ],
     // Patterns to exclude.
     exclude: [
