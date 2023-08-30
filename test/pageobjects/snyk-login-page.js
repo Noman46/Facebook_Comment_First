@@ -3,32 +3,33 @@ const Page = require('./page');
 class SnykKubernetePage extends Page {
   
 
-    get learningTopicCard () {
+    get learningLessonCard () {
         return $$('//div[@class="card"]');
     }
-    get topicList () {
-        return $$('//a[starts-with(@href,"/lesson/container-does-not-drop-all-default-capabilities/")]');
-    }
-
-    async numberOfElements (username, password) {
-        
-        console.log("Eleemnts Lenngth ============ ",await this.learningTopicCard.length)
-        
-
-    }
-    async numberOfElements2 (username, password) {
-        
-        console.log("Eleemnts Lenngth topic ============ ",await this.topicList.length)
+    get topicListOfTheLesson () {
+        return $$('//nav[@aria-label]/div');
     }
 
     async clcikOnKuberneteLesson (lessonNumber) {
-       this.learningTopicCard[lessonNumber].click()
+       await this.learningLessonCard[lessonNumber].click()
     }
     async clcikOnTopicList (topicNumber) {
-        this.topicList[topicNumber].click()
-     }
-     
-    
+        await this.topicListOfTheLesson[topicNumber].click()
+    }
+
+    async readAllTopicOneByOne () {
+        const totalNumberOfTopic = await this.topicListOfTheLesson.length
+        for (var topicList = 0; topicList<=totalNumberOfTopic-1; topicList++){
+            await this.clcikOnTopicList(topicList)
+            if(topicList === totalNumberOfTopic){
+                await browser.scroll(0, 300)
+                await browser.pause(8000);
+            }else{
+                await browser.pause(8000);
+            }
+            
+        }
+    }
 
     openSnykLessonPage () {
         return super.open('https://learn.snyk.io/lessons/?categories=kubernetes');

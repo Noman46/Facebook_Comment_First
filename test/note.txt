@@ -1,3 +1,3 @@
 1. To run this projecrt == npx window
 2. It is uploaded in github. Git hub repository is https://github.com/Noman46/Facebook_Comment_First.git
-3. To get the repository name == git config --get remote.origin.url
+3. To get the repository name == git config --get remote.origin.url or gir remote -v
