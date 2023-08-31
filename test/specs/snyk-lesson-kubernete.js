@@ -1,9 +1,9 @@
 const SnykKubernetePage = require('../pageobjects/snyk-login-page');
-const currentDate = new Date();
+const Utility = require('../Utility/utility');
+const assert = require('assert');
 
 
-describe('Noman goes to the Kubernete lession page and read all the articles then take a screen shot', () => {
-
+describe('Noman Reads all the lesson, takes screen shot and send it to manager via email', () => {
 
         it('Noman lands on the Snyk Kubernete lession page', async () => {
             await SnykKubernetePage.openSnykLessonPage()
@@ -17,14 +17,14 @@ describe('Noman goes to the Kubernete lession page and read all the articles the
         it('Noman scroll down every topic of the first lesson', async () => {
             await SnykKubernetePage.readAllTopicOneByOne()
         });
+        it('Noman Validates Number Of topic list and number of completed topic list is equal', async () => {
+            const totalNumberOfTopic = await SnykKubernetePage.getNumberofTopicInLesson()
+            const totalNumberOfCompletedTopic = await SnykKubernetePage.getNumberofCompltedTopicInLesson()
+            assert.strictEqual(totalNumberOfTopic, totalNumberOfCompletedTopic, `Total topic number is ${totalNumberOfTopic} and Total completed Topic Number is ${totalNumberOfCompletedTopic}`);
+        });
         it('Noman takes a screen shot as a proof that he complits the first lesson', async () => {
-            const hours = currentDate.getHours();
-            const minutes = currentDate.getMinutes();
-            const seconds = currentDate.getSeconds();
-            const fileName = `${hours}${minutes}${seconds}-kebernete`
+            const fileName = `${Utility.getCurrentTime()}-kebernete`
             await browser.saveScreenshot(`test/screenshot/${fileName}.png`);
-            await browser.pause(3000)
-            await browser.back()
         });
 })
 
